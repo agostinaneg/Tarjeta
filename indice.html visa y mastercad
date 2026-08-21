@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tarjeta</title>
+    <link rel="stylesheet" href="estilo.css">
+</head>
+
+<body>
+
+    <div class="contenedor">
+
+        <div class="campo">
+            <label>Numero de tarjeta</label>
+            <input type="text" id="tarjeta" maxlength="16">
+        </div>
+
+        <div class="campo">
+            <label>Entidad/Banco</label>
+            <input type="text" id="entidad" readonly>
+        </div>
+
+        <button onclick="verificar()">Verificar</button>
+
+    </div>
+
+    <script>
+
+        function verificar() {
+
+            let numero = document.getElementById("tarjeta").value;
+            let entidad = document.getElementById("entidad");
+
+            if (numero[0] == "4") {
+                entidad.value = "Visa";
+            }
+            else if (numero[0] == "5") {
+                entidad.value = "Mastercard";
+            }
+            else {
+                entidad.value = "No reconocida";
+            }
+
+        }
+
+    </script>
+
+</body>
+</html>
