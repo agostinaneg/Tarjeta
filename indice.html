@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Codigo de seguridad</title>
+    <link rel="stylesheet" href="estilo.css">
+</head>
+
+<body>
+
+    <div class="codigo">
+
+        <input type="text" maxlength="1" id="1" oninput="siguiente(1)">
+        <input type="text" maxlength="1" id="2" oninput="siguiente(2)">
+        <input type="text" maxlength="1" id="3" oninput="siguiente(3)">
+        <input type="text" maxlength="1" id="4" oninput="siguiente(4)">
+        <input type="text" maxlength="1" id="5" oninput="siguiente(5)">
+        <input type="text" maxlength="1" id="6" oninput="siguiente(6)">
+
+    </div>
+
+    <button id="boton" disabled onclick="validar()">Ingresar</button>
+
+    <br>
+
+    <button class="otro" onclick="reenviar()">Reenviar código</button>
+
+    <br>
+
+    <button class="cancelar" onclick="cancelar()">Cancelar</button>
+    <script>
+        function siguiente(numero) {
+
+            if (document.getElementById(numero).value != "" && numero < 6) {
+                document.getElementById(numero + 1).focus();
+            }
+
+            comprobar();
+        }
+        function comprobar() {
+
+            if (document.getElementById("1").value != "" &&
+                document.getElementById("2").value != "" &&
+                document.getElementById("3").value != "" &&
+                document.getElementById("4").value != "" &&
+                document.getElementById("5").value != "" &&
+                document.getElementById("6").value != "") {
+
+                document.getElementById("boton").disabled = false;
+                document.getElementById("boton").style.backgroundColor = "red";
+
+            } else {
+
+                document.getElementById("boton").disabled = true;
+                document.getElementById("boton").style.backgroundColor = "gray";
+
+            }
+        }
+
+
+        function validar() {
+            alert("Codigo valido");
+        }
+
+        function reenviar() {
+            alert("Codigo reenviado");
+        }
+
+        function cancelar() {
+            alert("Operacion cancelada");
+        }
+
+    </script>
+
+</body>
+</html>
